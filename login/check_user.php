@@ -1,5 +1,8 @@
 <?php 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+        session_start();
+
         include '../config.php';
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -32,6 +35,7 @@
         if (mysqli_num_rows($result) == 1) {
             while($row = mysqli_fetch_assoc($result)){
                 if(password_verify($password, $row['password'])){
+                    $_SESSION['user_id'] = $row['user_id'];
                     header('Location: ../to_do.php?user_id=' . $row['user_id']);
                 }else {
                     echo $password;

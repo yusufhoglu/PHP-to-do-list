@@ -13,14 +13,21 @@
         ?>  
         <h1>To-Do List</h1>
         <?php 
+            session_start();
+            if (!isset($_SESSION['user_id'])) {
+                header("Location: ./login/log_in.php");
+                exit();
+            }
             $task_id = isset($_GET['id']) ? $_GET['id'] : 0;
-            $user_id = isset($_GET['user_id']) ?$_GET['user_id'] : 0;
+            $user_id = isset($_SESSION['user_id']) ?$_SESSION['user_id'] : 0;
         ?>
         <form action="add_task.php" method="POST">
             <input type="text" name="title" placeholder="Görev Başlığı" required>
             <input type="hidden" name="nested_id" value="<?php echo $task_id; ?>">
-            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
             <button type="submit">Görev Ekle</button>
+        </form>
+        <form action="log_out.php" method="POST">
+            <button type="submit">Log-out</button>
         </form>
         <div class="task-list">
             <?php
@@ -39,9 +46,8 @@
                                 echo '<div class="task">';
                                     echo '<input type="hidden" name="task_id" value="' . $row['id'] . '">';
                                     echo '<input type="hidden" name="curr_id" value="' . $task_id . '">';
-                                    echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
                                     echo '<input type="checkbox" name="is_done" onchange="submitForm(' . $row['id'] . ')">';
-                                    echo '<a href="to_do.php?id='. $row['id']. '&user_id=' . $user_id . '">' . $row['name'] . '</a>';
+                                    echo '<a href="to_do.php?id='. $row['id'] .'">' . $row['name'] . '</a>';
                                 echo '</div>';
                             echo '</form>';
                         }
