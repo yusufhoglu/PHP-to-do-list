@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $task_id = $_POST['task_id'];
         $curr_id = $_POST['curr_id'];
         $is_done = isset($_POST['is_done']) ? 1 : 0;
+        $user_id = $_POST['user_id'];
         if($is_done == 1){
             // Veritabanında görevin durumunu güncelle
             $stmt = $conn->prepare("DELETE FROM `to-do` WHERE `id` = ?");
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     // İşlem tamamlandıktan sonra yönlendirme yap
-    header('Location: index.php?id='. $curr_id);
+    header('Location: to_do.php?id='. $curr_id .'&user_id='. $user_id);
     exit();
 }
 ?>
