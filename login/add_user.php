@@ -19,8 +19,9 @@
         {
             echo "Error: " . $e->getMessage();
         }
+
         if($stmt->error) {
-            die("Execute failed: " . $stmt->error);
+            die(" Execute failed: " . $stmt->error);
         }
         
         header("Location: ./log_in.php");

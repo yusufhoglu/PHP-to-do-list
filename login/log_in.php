@@ -20,6 +20,9 @@
             </div>
             <button type="submit">Login</button>
         </form>
+        <div class = "input-group">
+            <a href="./google_log_in.php">Google ile Giriş Yap</a>
+        </div>
         <div class="input-group">
                 <label >Don't have an account?</label>
                 <a href="./sign_in.php">Sign-in</a>

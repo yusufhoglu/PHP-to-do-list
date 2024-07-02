@@ -36,7 +36,7 @@
             while($row = mysqli_fetch_assoc($result)){
                 if(password_verify($password, $row['password'])){
                     $_SESSION['user_id'] = $row['user_id'];
-                    header('Location: ../to_do.php?user_id=' . $row['user_id']);
+                    header('Location: ../to_do.php');
                 }else {
                     echo $password;
                     echo $row['password'];

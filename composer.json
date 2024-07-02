@@ -1,0 +1,18 @@
+{
+    "name": "hocao/to-do-list",
+    "autoload": {
+        "psr-4": {
+            "Hocao\\ToDoList\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yusuf Hocaoglu",
+            "email": "hocaogluyusuf35@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.0",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
