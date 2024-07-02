@@ -1,8 +1,10 @@
 <?php
 require 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+if(getenv('APPLICATION_ENV') !== 'production') { 
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
 
 $servername = $_ENV['DB_SERVER'];
 $username = $_ENV['DB_USERNAME'];
