@@ -7,5 +7,6 @@
     
     // Google login URL'si
     $login_url = $client->createAuthUrl();
+    header('Location: ' . $login_url);
+    exit()
 ?>
-    <a href="<?php echo $login_url; ?>"> Google ile Giriş Yap </a>
