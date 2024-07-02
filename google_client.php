@@ -1,11 +1,11 @@
 <?php
 require_once 'vendor/autoload.php';
 
-// Looing for .env at the root directory
-if(getenv('APPLICATION_ENV') !== 'production') { 
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-}
+// // Looing for .env at the root directory
+// if(getenv('APPLICATION_ENV') !== 'production') { 
+//     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+//     $dotenv->load();
+// }
 
 function getGoogleClient() {
     $config = [
